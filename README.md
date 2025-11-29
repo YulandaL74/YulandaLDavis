@@ -1,18 +1,33 @@
-# Yulanda L Davis
-<h1>Hi, I'm Yulanda, an <a href="https://linkedin.com/in/yulanda-davis-618736322">IT Professional</a>☺</h1>
+# Compliance Report Automation (PowerShell)
 
-AZURE Cloud Project/Information Technology Projects:</h2>
+## Overview
+This script demonstrates how PowerShell can be used to automate compliance reporting.  
+It collects recent **Application** and **System** event logs from Windows and saves them into a timestamped text file.  
+The goal is to show how automation reduces manual work, improves accuracy, and supports risk management.
 
-- <b>osTicket (Help Desk Ticketing System)</b>
-  - [osTicket: Prerequisites and Installation](https://github.com/joshmadakorcc/osticket-prereqs)
-  - [osTicket: Post-Installation Configuration](https://github.com/joshmadakorcc/post-install-config)
-  - [osTicket: Ticket Lifecycle Examples](https://github.com/joshmadakorcc/ticket-lifecycle)
-- <b>Microsoft Azure</b>
-  - [Configuring On-premises Active Directory within Azure VMs](https://github.com/joshmadakorcc/configure-ad)
-  - [Network Security Groups (NSGs) and Inspecting Network Protocols](https://github.com/joshmadakorcc/azure-network-protocols)
+## Why It Matters
+- **Compliance:** Organizations often need regular system reports for audits and risk mitigation.  
+- **Efficiency:** Automating log collection saves time compared to manual export.  
+- **Communication:** By documenting each step clearly, technical processes become easier for non-technical professionals to understand.
 
-<h2>Connect with me:</h2>
+## How It Works
+1. **Create Output Folder** – Ensures reports are stored in a dedicated directory.  
+2. **Generate Timestamped File** – Each report is uniquely named for easy tracking.  
+3. **Collect Logs** – Pulls the latest 50 entries from Application and System event logs.  
+4. **Export to File** – Saves logs into a text file with clear section headers.  
+5. **Confirm Completion** – Outputs the location of the generated report.
 
-[<img align="left" alt="yulanda | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
+## Example Use Case
+- A compliance officer needs daily system logs for audit purposes.  
+- Instead of manually exporting logs, they run this script.  
+- The script generates a report automatically, ensuring consistency and reliability.
 
-[linkedin]: https://www.linkedin.com/in/yulanda-davis-618736322/
+## Teaching Demo
+This script is ideal for training sessions because it:
+- Shows how **automation supports compliance**.  
+- Breaks down technical steps into **clear, communicable actions**.  
+- Bridges the gap between **IT workflows** and **business communication**.
+
+---
+
+✨ This project highlights the intersection of **technology and executive communication** — demonstrating not only how to automate tasks, but also how to explain them in a way that empowers professionals.
