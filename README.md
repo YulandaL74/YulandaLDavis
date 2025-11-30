@@ -35,7 +35,6 @@ This script is ideal for training sessions because it:
 
 
 
-
 # User Management Automation (PowerShell)
 
 ## Overview
