@@ -1,5 +1,13 @@
 # Compliance Report Automation (PowerShell)
 
+Add PowerShell automation example to existing project
+
+- Uploaded PNG screenshot demonstrating PowerShell script execution
+- Showcased automation workflow as part of project documentation
+- Updated project to include visual example of GitHub + PowerShell integration
+
+- Add PowerShell automation PNG example to project
+
 ## Overview
 This script demonstrates how PowerShell can be used to automate compliance reporting.  
 It collects recent **Application** and **System** event logs from Windows and saves them into a timestamped text file.  
