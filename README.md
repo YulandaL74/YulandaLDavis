@@ -9,66 +9,54 @@ Add PowerShell automation example to existing project
 - Add PowerShell automation PNG example to project
 
 ## Overview
-This script demonstrates how PowerShell can be used to automate compliance reporting.  
-It collects recent **Application** and **System** event logs from Windows and saves them into a timestamped text file.  
-The goal is to show how automation reduces manual work, improves accuracy, and supports risk management.
+This repo contains two example PowerShell automation scripts:
+- scripts/collect-eventlogs.ps1 — collects Application and System event log entries and saves a timestamped report.
+- scripts/user-management.ps1 — demonstrates basic user management (Add / Disable / ResetPassword) for AD or local accounts.
+
+The README documents usage, prerequisites, and security considerations.
+
+## Quick start (recommended)
+1. Clone the repo.
+2. Open PowerShell as Administrator.
+3. Run the event collection example:
+   - Example: .\scripts\collect-eventlogs.ps1 -OutputDir C:\Reports -MaxEvents 100 -Compress
+4. Run a user-management example (AD):
+   - Example: .\scripts\user-management.ps1 -Action Add -UserName jdoe -GivenName John -Surname Doe -UseAD
+
+## Prerequisites
+- Windows with PowerShell 5.1+ or PowerShell 7.
+- Administrative privileges for most operations (especially reading certain logs or managing accounts).
+- For Active Directory operations, the ActiveDirectory PowerShell module (RSAT) must be installed.
+- Do not run these scripts in production without testing in a non-production environment.
 
 ## Why It Matters
-- **Compliance:** Organizations often need regular system reports for audits and risk mitigation.  
-- **Efficiency:** Automating log collection saves time compared to manual export.  
-- **Communication:** By documenting each step clearly, technical processes become easier for non-technical professionals to understand.
+- Compliance: Organizations often need regular system reports for audits and risk mitigation.
+- Efficiency: Automating log collection and account management saves time compared to manual processes.
+- Communication: Clear documentation makes technical processes accessible to non-technical stakeholders.
 
-## How It Works
-1. **Create Output Folder** – Ensures reports are stored in a dedicated directory.  
-2. **Generate Timestamped File** – Each report is uniquely named for easy tracking.  
-3. **Collect Logs** – Pulls the latest 50 entries from Application and System event logs.  
-4. **Export to File** – Saves logs into a text file with clear section headers.  
-5. **Confirm Completion** – Outputs the location of the generated report.
+## Security & operational notes
+- Never store plain-text credentials in source control.
+- Prefer secrets stores (Azure Key Vault, HashiCorp Vault) or use secure prompts (Read-Host -AsSecureString) when obtaining credentials.
+- Generated temporary passwords are printed in these examples for demonstration; replace with secure delivery (e.g., secure email, vault) in production.
+- Test scripts on a non-production machine before deploying widely.
+- Consider centralizing logs and reports (SIEM, file share with restricted access).
 
-## Example Use Case
-- A compliance officer needs daily system logs for audit purposes.  
-- Instead of manually exporting logs, they run this script.  
-- The script generates a report automatically, ensuring consistency and reliability.
+## Improvements you may want
+- Add stronger auditing (send events to a central log or SIEM).
+- Add unit/integration tests (e.g., Pester for PowerShell).
+- Add scheduling instructions (Task Scheduler, Windows Scheduled Task or Azure Automation).
+- Add encryption/compression and retention policy for generated reports.
+- Add more robust filtering (by event levels, specific event IDs, date ranges).
 
-## Teaching Demo
-This script is ideal for training sessions because it:
-- Shows how **automation supports compliance**.  
-- Breaks down technical steps into **clear, communicable actions**.  
-- Bridges the gap between **IT workflows** and **business communication**.
+## Teaching demo
+These scripts are ideal for training because they:
+- Show how automation supports compliance and IT workflows.
+- Break down technical steps into clear, communicable actions.
+- Bridge the gap between system administration and business communication.
 
----
+## Assets
+- Include the referenced PNG screenshot in a folder, e.g., docs/screenshots/powershell-run.png
+- If you mention the screenshot in the README, ensure the file exists and the path is correct.
 
-✨ This project highlights the intersection of **technology and executive communication** — demonstrating not only how to automate tasks, but also how to explain them in a way that empowers professionals.
-
-
-
-
-# User Management Automation (PowerShell)
-
-## Overview
-This script demonstrates how PowerShell can be used to automate basic user management tasks.  
-It provides examples such as adding new users, disabling accounts, and resetting passwords.  
-The goal is to show how automation supports IT teams, HR processes, and compliance requirements.
-
-## Why It Matters
-- **Compliance:** Ensures user accounts are managed consistently and securely.  
-- **Efficiency:** Reduces manual effort in onboarding, offboarding, or account maintenance.  
-- **Risk Mitigation:** Helps prevent unauthorized access by automating account updates.  
-- **Communication:** Clear documentation makes technical processes accessible to non-technical professionals.  
-
-## How It Works
-1. **Define User Actions** – Choose whether to add, disable, or reset accounts.  
-2. **Run PowerShell Commands** – Executes the appropriate automation for each action.  
-3. **Log Results** – Outputs confirmation messages for transparency and auditing.  
-
-## Example Use Case
-- An HR team needs to onboard a new employee.  
-- Instead of manually creating accounts, they run this script.  
-- The script adds the user, sets a temporary password, and logs the action for compliance.  
-
-## Teaching Demo
-This script is ideal for training sessions because it:  
-- Shows how **automation supports HR and IT workflows**.  
-- Breaks down technical steps into **clear, communicable actions**.  
-- Bridges the gap between **system administration** and **business communication**.
-  
+## License & Contributing
+- Add a LICENSE and CONTRIBUTING.md if you plan to share this repo publicly or accept contributions.
